@@ -1,0 +1,117 @@
+﻿@model IEnumerable<FacturaApp.Models.Facturas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_Inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_Fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Horas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostoHora)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeleterUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModificationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModifierUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proveedores.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_Inicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_Fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostoHora)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleterUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModificationTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModifierUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatorUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdFactura }) |
+          @*  @Html.ActionLink("Details", "Details", new { id=item.IdFactura }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdFactura })
+        </td>
+    </tr>
+}
+
+</table>

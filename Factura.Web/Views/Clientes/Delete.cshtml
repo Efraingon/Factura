@@ -1,0 +1,136 @@
+﻿@model FacturaApp.Models.Clientes
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Esta seguro en eliminar este cliente?</h3>
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contactoClientes.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactoClientes.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RFC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RFC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleterUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleterUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletionTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletionTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModificationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModificationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifierUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModifierUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)*@
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresa a listas", "Index")
+        </div>
+    }
+</div>

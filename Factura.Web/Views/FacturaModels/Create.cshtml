@@ -1,0 +1,222 @@
+﻿@*@model FacturaApp.Models*@
+@using FacturaApp.Web.Models;
+@using FacturaApp.Models;
+
+@using FacturaApp.Web.Extensions;
+
+
+@model FacturaModel
+
+
+@*@using(Html.BeginForm("Create","FacturaModels",FormMethod.Post,new { @Id = "facturaModel" })) {
+
+	@Html.AntiForgeryToken()*@
+
+@using(Html.BeginForm("Create","FacturaModels",FormMethod.Post,new { @Id = "facturaModel",@name = "facturaModel" })) {
+	@Html.AntiForgeryToken()
+
+	
+	<div class="form-horizontal">
+		<fieldset>
+			<legend>Factura</legend>
+			@*<div class="form-group">
+			<label>
+				<span>@Html.DisplayNameFor(model => model.Numero)</span>
+				@Html.EditorFor(model => model.Numero)
+				@Html.ValidationMessageFor(model => model.Numero)
+			</label>
+			<label>
+				<span>@Html.DisplayNameFor(model => model.Status)</span>
+				@Html.EditorFor(model => model.Status)
+				@Html.ValidationMessageFor(model => model.Status)
+			</label>
+			<label>
+				<span>@Html.DisplayNameFor(model => model.Descripcion)</span>
+				@Html.EditorFor(model => model.Descripcion)
+				@Html.ValidationMessageFor(model => model.Descripcion)
+			</label>
+
+		</div>*@
+			@Html.ValidationSummary(true,"",new { @class = "text-danger" })
+
+		@*	@Html.HiddenFor(p => p.TenantId)*@
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Numero,htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Numero,new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Numero,"",new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Descripcion,htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Descripcion,new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Descripcion,"",new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Status,htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Status,new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Status,"",new { @class = "text-danger" })
+				</div>
+			</div>
+
+
+			@*<div>
+				<em data-bind="validationMessage: detalle"></em>
+		</div>*@
+
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+
+							<th scope="col">Factura</th>
+							<th scope="col">Precio</th>
+							<th scope="col">IdDocumento34</th>
+
+							<th>
+								<button data-bind="click: agregarDetalle">Agregar Detalle</button>
+							</th>
+
+
+
+						</tr>
+					</thead>
+					
+					<tbody data-bind="foreach: detalle">
+						
+						<tr class="active">
+
+							<td class="form-group">
+								<select required="required" data-bind="value: FacturaId, options:window.Factura, optionsText:'Text', optionsValue: 'Value', attr: { name: 'Documento[' + $index() + '].IdFactura' }"></select>
+								<em data-bind="validationMessage: FacturaId"></em>
+							</td>
+							<td class="success">
+								<input type="number" required="required" min="0" max="999999999" data-bind="value: precio, attr: { name: 'Documento[' + $index() + '].Monto' }" />
+								<em data-bind="validationMessage: precio"></em>
+							</td>
+							<td class="success">
+								<input type="number" required="required" min="0" max="999999999" data-bind="value: documentoId, attr: { name: 'Documento[' + $index() + '].idDocumento' }" />
+								<em data-bind="validationMessage: documentoId"></em>
+							</td>
+
+							<td>
+								<button data-bind="click: $root.eliminarDetalle">Eliminar</button>
+							</td>
+						</tr>
+						
+					</tbody>
+					@*<tbody>
+			@if(Model != null && Model.Documento  != null && Model.Documento.Count > 0) {
+				var i = 0;
+				foreach(var item in Model.Documento) {
+					<tr>
+						<td>@Html.DropDownList("Detalle[" + i + "].ProductoId",new SelectList(ViewBag.Facturas,"IdFactura","Nombre",item.IdFactura))</td>
+						<td>@Html.TextBox("Detalle[" + i + "].Precio",item.Monto)</td>
+
+						<td><button type="submit" name="operacion" value="eliminar-detalle-@i">Eliminar</button></td>
+					</tr>
+					i++;
+				}
+			}
+		</tbody>*@
+
+
+
+				</table>
+			</div>
+			<p>
+				@*<input type="submit" value="Crear" data-bind="enable: canCreate()" />*@
+				@*<input type="button" id="btn-crear" value="Create" class="btn btn-default" />*@
+				<input type="submit" value="Create"  class="btn btn-default" />
+				<input type="submit" value="Create" class="btn btn-default" />
+			</p>
+		</fieldset>
+	</div>
+}
+<div>
+	@Html.ActionLink("Volver al listado","Index")
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/knockout-2.2.1.js"></script>
+<script src="~/Scripts/knockout.validation.js"></script>
+<script src="~/Scripts/ViewModels/FacturaCreateViewModel.js"></script>
+
+<script>
+    // catálogo de productos que se utiliza para llenar el <select /> de productos de cada detalle
+	var Factura = JSON.parse('@Html.Raw(Json.Encode(ViewBag.Facturas))');
+	console.log(Factura)
+
+    // viewModel con el que haremos el binding de nuestra vista.
+    var viewModel = new facturaViewModel();
+
+    // inicializamos la validación de knockout.
+    ko.validation.init({ insertMessages: false, parseInputAttributes: true });
+
+    // aplicamos el viewModel a nuestra vista.
+    ko.applyBindings(viewModel);
+</script>
+
+
+@section Scripts{
+	<script>
+		$(document).ready(function () {
+			CargarLista();
+		});
+
+		function CargarLista() {
+			var _url = abp.appPath + 'Facturas/ListaDeFactura';
+			var idObject = '#IdFactura';
+			$.ajax({
+				url: _url,
+				type: 'POST',
+				contentType: 'application/html',
+				success: function (data) {
+					$(idObject).children('option').remove();
+					$.each(data.result, function (i, item) {
+						$(idObject).append($('<option>', {
+							value: item.value,
+							text: item.text,
+						}));
+						$(idObject).selectpicker('refresh');
+					});
+				}
+			});
+		}
+
+
+		$('#btn-crear').on('click', function () {
+			Create();
+		});
+
+		function Create() {
+			var _url = abp.appPath + 'FacturaModels/Create';
+			var formElement = document.getElementById("facturaModel");
+			var formData = new FormData(formElement);
+			$.ajax({
+				url: _url,
+				type: 'POST',
+				processData: false,  // tell jQuery not to process the data
+				contentType: false, // tell jQuery not to set contentType
+				data: { facturaModel: formData },
+				success: function (data) {
+					alert('se ha creado el registro');
+				},
+				error: function (e) {
+					alert('ocurrió un error ' + e.statusText);
+					console.log(e);
+				}
+			});
+		}
+
+	</script>
+
+}

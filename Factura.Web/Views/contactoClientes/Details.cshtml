@@ -1,0 +1,114 @@
+﻿@model FacturaApp.Models.contactoClientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>contactoClientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contacto)
+        </dt>
+
+        @*<dd>
+            @Html.DisplayFor(model => model.Contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleterUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleterUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletionTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletionTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModificationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModificationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifierUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModifierUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdContacto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

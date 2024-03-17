@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FacturaApp.Models.Status>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeleterUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModificationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModifierUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatorUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleterUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModificationTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModifierUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatorUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdContacto }) |
+           @* @Html.ActionLink("Details", "Details", new { id=item.IdContacto }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdContacto })
+        </td>
+    </tr>
+}
+
+</table>
